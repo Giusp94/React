@@ -1,11 +1,11 @@
-import { HelloWorld } from "./Hello";
+import { Welcome } from "./Welcome";
 
 export function App() {
   return (
     <div>
       <h1>My Awesome Application</h1>
       <hr />
-      <HelloWorld />
+      <Welcome name="John" age={19} />
     </div>
   );
 }
