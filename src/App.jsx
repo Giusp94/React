@@ -1,16 +1,11 @@
-import { AlertClock } from "./AlertClock";
+import { Counter } from "./Counter";
 
 export function App() {
-  function handleShowTime() {
-    const time = new Date();
-    alert(`The time is ${time.toLocaleTimeString()}`);
-  }
-
   return (
     <div>
       <h1>My Awesome Application</h1>
       <hr />
-      <AlertClock label="Click me!" onClick={handleShowTime} />
+      <Counter initialValue={0} incrementImport={1} />
     </div>
   );
 }
