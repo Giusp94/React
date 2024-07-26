@@ -1,13 +1,7 @@
-import { Age } from "./Age";
-
-export function Welcome({ name = "Paolo", age = 18 }) {
+export function Welcome({ name = "Paolo" }) {
   return (
     <div>
-      <p>
-        Welcome,
-        <strong> {name}</strong>!
-      </p>
-      <Age age={age} />
+      <p>Welcome, {name}!</p>
     </div>
   );
 }
