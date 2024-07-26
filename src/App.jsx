@@ -1,5 +1,4 @@
-import { InteractiveWelcome } from "./InteractiveWelcome";
-import { Login } from "./Login";
+import { UncontrolledLogin } from "./UncontrolledLogin";
 
 export function App() {
   function handleLogin(state) {
@@ -9,9 +8,7 @@ export function App() {
     <div>
       <h1>My Awesome Application</h1>
       <hr />
-      <InteractiveWelcome />
-      <hr />
-      <Login onLogin={handleLogin} />
+      <UncontrolledLogin />
     </div>
   );
 }
