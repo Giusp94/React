@@ -1,4 +1,4 @@
-import { UncontrolledLogin } from "./UncontrolledLogin";
+import { FocusableInput } from "./FocusableInput";
 
 export function App() {
   function handleLogin(state) {
@@ -8,7 +8,7 @@ export function App() {
     <div>
       <h1>My Awesome Application</h1>
       <hr />
-      <UncontrolledLogin />
+      <FocusableInput />
     </div>
   );
 }

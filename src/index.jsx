@@ -1,7 +1,12 @@
+import { StrictMode } from "react";
 import { App } from "./App";
 import { createRoot } from "react-dom/client";
 
-createRoot(document.getElementById("root")).render(<App />);
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
 
 /* Risposte alle domande
 1-Can you use the Hello component more than once in the App component? 
