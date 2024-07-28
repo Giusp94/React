@@ -1,6 +1,6 @@
 export function Welcome({ name = "Paolo" }) {
   return (
-    <div>
+    <div className="Welcome">
       <p>Welcome, {name}!</p>
     </div>
   );

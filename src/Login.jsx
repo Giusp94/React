@@ -10,6 +10,9 @@ function inputBase() {
 
 export function Login({ onLogin }) {
   const [data, setData] = useState(inputBase());
+  const LoginButtonStyle = {
+    backgroundColor: data.password.length <= 8 ? "red" : "green",
+  };
 
   function handleInput(event) {
     const name = event.target.name;
@@ -32,6 +35,7 @@ export function Login({ onLogin }) {
 
   return (
     <form onSubmit={handleLogin}>
+      <h2>Login</h2>
       <input
         name="username"
         value={data.username}
@@ -56,6 +60,7 @@ export function Login({ onLogin }) {
         name="login"
         type="submit"
         disabled={!data.username || !data.password}
+        style={LoginButtonStyle}
       >
         Login
       </button>

@@ -1,6 +1,11 @@
 export function CounterDisplay({ counter }) {
+  const CounterDisplayStyle = {
+    fontSize: "1.5rem",
+    color: "red",
+  };
+
   return (
-    <div>
+    <div style={CounterDisplayStyle}>
       <h2>
         Show the increment.
         <br />

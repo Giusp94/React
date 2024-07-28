@@ -15,6 +15,7 @@ export function Counter({ initialValue = 0, incrementImport = 1 }) {
   }
   return (
     <div>
+      <h2>My Counter</h2>
       <CounterDisplay counter={counter} />
       <button onClick={handleCounterIncrement}>Increment</button>
       <button onClick={handleCounterReset}>Reset</button>
