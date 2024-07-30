@@ -1,34 +1,47 @@
 import { useState } from "react";
 
-function printTodo({ todo }) {
-  const [todo, setTodo] = useState([]);
-  return <li>{todo}</li>;
-}
-
 export function TodoList() {
   const [todos, setTodos] = useState([]);
 
   function handleTodo(event) {
     event.preventDefault();
+    const input = event.target.children[0];
     const formTodo = new FormData(event.target);
     const todo = formTodo.get("todo");
-    console.log(todo);
-    //   console.log(todos);
-    todos.push(todo);
-    setTodos((t) => t);
+    setTodos((t) => [...t, todo]);
+    input.value = "";
   }
+
+  function handleResetButton() {
+    setTodos(() => []);
+  }
+
+  function handleSingleLi(index) {
+    const newTodos = todos.filter((t, i) => i !== index);
+    setTodos(newTodos);
+  }
+  console.log(todos);
 
   return (
     <section>
       <form onSubmit={handleTodo}>
         <input type="text" name="todo" />
-        <button onClick={printTodo}>Add Todo</button>
+        <button type="submit">Add Todo</button>
       </form>
       <ul>
-        {todos.map((todo) => (
-          <printTodo todo={todo} />
+        {todos.map((todo, index) => (
+          <li key={index}>
+            {todo}
+            <button type="button" onClick={() => handleSingleLi(index)}>
+              Remove
+            </button>
+            <br />
+          </li>
         ))}
       </ul>
+      <button type="button" onClick={handleResetButton}>
+        Reset
+      </button>
     </section>
   );
 }
