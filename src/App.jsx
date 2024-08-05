@@ -1,11 +1,11 @@
+import { Container } from "./Container";
 import { TodoList } from "./TodoList";
 
 export function App() {
   return (
-    <div>
-      <h1>My Awesome Application</h1>
+    <Container title={<h1>My Awesome Application</h1>}>
       <hr />
       <TodoList />
-    </div>
+    </Container>
   );
 }

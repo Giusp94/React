@@ -1,0 +1,13 @@
+div {
+  border: 1px solid red;
+  background-color: #fff;
+}
+.title {
+  cursor: pointer;
+}
+.dn {
+  display: none;
+}
+.db {
+  display: block;
+}
