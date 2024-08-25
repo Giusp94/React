@@ -1,42 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useGithubUser } from "./hook/useGithubUser";
 
 export function GithubUser({ username }) {
-  const [user, setUser] = useState(username);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const { user, load, error, onFetchGithubUser } = useGithubUser(username);
 
-  async function fetchGithubUser(username) {
-    setLoading(true);
-    try {
-      const response = await fetch(`https://api.github.com/users/${username}`);
-      const userJson = await response.json();
-      setUser(userJson);
-      console.log(userJson);
-    } catch (error) {
-      setError(error);
-      setUser(null);
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => fetchGithubUser(username), [username]);
+  useEffect(() => onFetchGithubUser(username), [username]);
 
   return (
     <div>
-      {loading && <h2>Loading...</h2>}
-      {error && <h1>There is an error</h1>}
-      {user && (
-        <p>
-          Name: {user.name}
-          <br />
-          Login: {user.login}
-          <br />
-          Avatar:
-          <br />
-          <img src={`${user.avatar_url}`} alt="" />
-        </p>
+      {load && <h2>Loading...</h2>}
+      {error ? (
+        <h1>There is an error</h1>
+      ) : (
+        user && (
+          <p>
+            Name: {user.name}
+            <br />
+            Login: {user.login}
+            <br />
+            Avatar:
+            <br />
+            <img src={`${user.avatar_url}`} alt="" />
+          </p>
+        )
       )}
     </div>
   );

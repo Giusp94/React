@@ -36,14 +36,14 @@ export function Login({ onLogin }) {
         name="username"
         value={data.username}
         type="text"
-        onChange={handleInput}
+        onChange={onInput}
         placeholder="Username"
       />
       <input
         name="password"
         value={data.password}
         type="password"
-        onChange={handleInput}
+        onChange={onInput}
         placeholder="Password"
       />
       <input
