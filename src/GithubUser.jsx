@@ -4,26 +4,14 @@ import { useGithubUser } from "./hook/useGithubUser";
 export function GithubUser({ username }) {
   const { user, load, error, onFetchGithubUser } = useGithubUser(username);
 
-  useEffect(() => onFetchGithubUser(username), [username]);
+  useEffect(() => {
+    onFetchGithubUser(username);
+  }, [username]);
 
   return (
     <div>
       {load && <h2>Loading...</h2>}
-      {error ? (
-        <h1>There is an error</h1>
-      ) : (
-        user && (
-          <p>
-            Name: {user.name}
-            <br />
-            Login: {user.login}
-            <br />
-            Avatar:
-            <br />
-            <img src={`${user.avatar_url}`} alt="" />
-          </p>
-        )
-      )}
+      {error ? <h1>There is an error</h1> : user && <p>{user?.name}</p>}
     </div>
   );
 }

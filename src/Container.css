@@ -1,13 +1,25 @@
-div {
-  border: 1px solid red;
-  background-color: #fff;
-}
 .title {
-  cursor: pointer;
+  color: rgb(188, 5, 5);
+  display: flex;
+  justify-content: center;
 }
-.dn {
-  display: none;
+.nav {
+  text-decoration: none;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
-.db {
-  display: block;
+.main {
+  margin: 0.5rem 0;
+  border: 1px solid blueviolet;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: space-around;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: crimson;
 }

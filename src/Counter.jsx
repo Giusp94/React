@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { CounterDisplay } from "./CounterDisplay";
+import { useParams } from "react-router-dom";
 
-export function Counter({ initialValue = 0, incrementImport = 1 }) {
+export function Counter() {
+  const { initialValue = 0, incrementImport = 1 } = useParams();
   const [counter, setCount] = useState(initialValue);
 
   function handleCounterIncrement() {

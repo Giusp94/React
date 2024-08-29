@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-export function Counter2({ initialValue = 0, incrementImport = 1 }) {
+export function Counter2() {
   const [counter, setCount] = useState(initialValue);
+  const { initialValue = 0, incrementImport = 1 } = useParams();
 
   useEffect(() => {
     console.log(`Counter is: ${counter}`);
