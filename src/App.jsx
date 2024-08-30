@@ -7,6 +7,7 @@ import { GithubUsers } from "./GithubUsers";
 import { GithubUser } from "./GithubUser";
 import { GithubUserList } from "./GithubUserList";
 import { ShowGithubUser } from "./ShowGithubUser";
+import { GithubUsersSWR } from "./GithubUsersSWR";
 
 export function App() {
   return (
@@ -17,6 +18,7 @@ export function App() {
           <div className="nav">
             <Link to="/">Home page</Link> | <Link to="/counter">Counter</Link> |{" "}
             <Link to="/user">Github Search User</Link> |{" "}
+            <Link to="/userSWR">Github User with SWR</Link> |{" "}
             <Link to="/users">Github User List</Link>
           </div>
         </div>
@@ -45,6 +47,9 @@ export function App() {
             <Route index element={<p>Add a user and select it</p>} />
             <Route path=":username" element={<GithubUser />} />
           </Route>
+        </Route>
+        <Route path="/userSWR" element={<GithubUsersSWR />}>
+          <Route path=":username" element={<GithubUser />} />
         </Route>
       </Routes>
     </Container>
